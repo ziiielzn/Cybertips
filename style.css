@@ -1,0 +1,875 @@
+:root {
+    --main-blue: #00A9E0;
+    --dark-blue: #003D5B;
+    --light-blue: #E5F6FF;
+    --accent-blue: #80C4E0;
+    --white: #FFFFFF;
+  }
+
+  /* universal navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  width: 100%;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  /* Glowing blue/purple effect */
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.3),
+              0 0 30px rgba(157, 0, 255, 0.2);
+  animation: borderGlow 3s infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(100, 255, 218, 0.3);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.3),
+                0 0 30px rgba(157, 0, 255, 0.2);
+  }
+  100% {
+    border-color: rgba(157, 0, 255, 0.3);
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.4),
+                0 0 40px rgba(100, 255, 218, 0.3);
+  }
+}
+
+/* Logo Container */
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  height: 50px;
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(100, 255, 218, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.navbar .logo:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(100, 255, 218, 0.9));
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 100px; /* Balanced spacing */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li {
+  display: inline;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #64ffda; /* Cyber teal */
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px rgba(100, 255, 218, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.navbar .nav-links a:hover {
+  color: #c1ff18; /* Brighter green */
+  text-shadow: 0 0 10px rgba(193, 255, 24, 0.7);
+}
+
+.navbar .nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #64ffda;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Profile Icon */
+.navbar .profile-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .profile-icon {
+  font-size: 1.5rem;
+  color: #64ffda;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar .profile-icon:hover {
+  color: #c1ff18;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(193, 255, 24, 0.7);
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* Footer Style */
+.footer {
+  background-color: #80c1d3; /* Same color as navbar */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0; /* Space around content */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-logo-container {
+  margin-bottom: 10px; /* Space between logo and text */
+}
+
+.footer-logo {
+  width: 90px; /* Adjust logo size */
+  height: auto;
+}
+
+.footer-text {
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+/* Apply to register.html only */
+.register-page {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #0a192f;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,169,224,0.1) 0%, rgba(0,0,0,0) 50%),
+    linear-gradient(-135deg, rgba(100,255,218,0.1) 0%, rgba(0,0,0,0) 50%);
+  z-index: 0;
+}
+
+.register-page::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(to right, 
+      rgba(0,169,224,0) 0%, 
+      rgba(0,169,224,0.1) 50%, 
+      rgba(0,169,224,0) 100%);
+  animation: animateGlow 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes animateGlow {
+  0% { transform: rotate(0deg) translate(-10%, -10%) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(-10%, -10%) rotate(-360deg); }
+}
+
+.register-page .logo {
+  width: 200px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(100, 255, 218, 0.5));
+  transition: filter 0.3s ease;
+}
+
+.register-page .logo:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(100, 255, 218, 0.8));
+}
+
+.register-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.register-page .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 280px;
+  padding: 12px 0;
+  margin: 10px auto;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.register-page .btn-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.register-page .btn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.register-page .login-link {
+  margin-top: 20px;
+  color: #64ffda;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+
+.register-page .login-link:hover {
+  color: #c1ff18;
+  text-decoration: underline;
+}
+
+.glow-box {
+  position: absolute;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  z-index: 0;
+  animation: float 15s infinite linear;
+}
+
+.glow-box:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.glow-box:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  left: 80%;
+  animation-delay: -3s;
+}
+
+.glow-box:nth-child(3) {
+  width: 200px;
+  height: 200px;
+  top: 30%;
+  left: 50%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Apply only to create.html */
+.create-page {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a192f;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shared background effects from register page */
+.create-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,169,224,0.1) 0%, rgba(0,0,0,0) 50%),
+    linear-gradient(-135deg, rgba(100,255,218,0.1) 0%, rgba(0,0,0,0) 50%);
+  z-index: 0;
+}
+
+.create-page::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(to right, 
+      rgba(0,169,224,0) 0%, 
+      rgba(0,169,224,0.1) 50%, 
+      rgba(0,169,224,0) 100%);
+  animation: animateGlow 8s linear infinite;
+  z-index: 0;
+}
+
+.create-container {
+  display: flex;
+  width: 85%;
+  max-width: 1100px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(10, 25, 47, 0.7);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+}
+
+.left-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-left {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(100, 255, 218, 0.6));
+  transition: filter 0.3s ease;
+}
+
+.logo-left:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(100, 255, 218, 0.9));
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.right-panel h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.form-plain {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-plain input {
+  width: 100%; 
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-plain input:focus {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.submit-btn {
+  background-color: #64ffda;
+  color: #0a192f;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.submit-btn:hover {
+  background-color: #c1ff18;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.6);
+}
+
+.right-panel .login-link {
+  margin-top: 20px;
+  color: #64ffda;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.right-panel .login-link:hover {
+  color: #c1ff18;
+  text-decoration: underline;
+}
+
+/* Apply only to login.html */
+.login-page {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a192f;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shared background effects */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,169,224,0.1) 0%, rgba(0,0,0,0) 50%),
+    linear-gradient(-135deg, rgba(100,255,218,0.1) 0%, rgba(0,0,0,0) 50%);
+  z-index: 0;
+}
+
+.login-page::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(to right, 
+      rgba(0,169,224,0) 0%, 
+      rgba(0,169,224,0.1) 50%, 
+      rgba(0,169,224,0) 100%);
+  animation: animateGlow 8s linear infinite;
+  z-index: 0;
+}
+
+.login-container {
+  display: flex;
+  width: 85%;
+  max-width: 1100px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(10, 25, 47, 0.7);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+}
+
+.login-container .left-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-container .logo-left {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(100, 255, 218, 0.6));
+  transition: filter 0.3s ease;
+}
+
+.login-container .logo-left:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(100, 255, 218, 0.9));
+}
+
+.login-container .right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-container .right-panel h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.login-container .form-plain {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container .form-plain input {
+  width: 100%; 
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-container .form-plain input:focus {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.login-container .submit-btn {
+  background-color: #64ffda;
+  color: #0a192f;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.login-container .submit-btn:hover {
+  background-color: #c1ff18;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.6);
+}
+
+.login-container .signup-link {
+  margin-top: 20px;
+  color: #64ffda;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-container .signup-link a {
+  color: #c1ff18;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-container .signup-link a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* Apply only to home.html */
+.home-page {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a192f;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background effects */
+.home-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,169,224,0.1) 0%, rgba(0,0,0,0) 50%),
+    linear-gradient(-135deg, rgba(100,255,218,0.1) 0%, rgba(0,0,0,0) 50%);
+  z-index: 0;
+}
+
+.home-page::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(to right, 
+      rgba(0,169,224,0) 0%, 
+      rgba(0,169,224,0.1) 50%, 
+      rgba(0,169,224,0) 100%);
+  animation: animateGlow 8s linear infinite;
+  z-index: 0;
+}
+
+/* Main Content */
+.main-content-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+.text-section {
+  flex: 1;
+  max-width: 600px;
+}
+
+.text-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  color: #ccd6f6;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* White Graphic Image */
+.graphic-section img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.5s ease;
+}
+
+.graphic-section img:hover {
+  transform: translateY(-10px);
+}
+
+/* Explore Button */
+.explore-btn {
+  background-color: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  padding: 14px 30px;
+  border: 1px solid #64ffda;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-btn:hover {
+  background-color: rgba(100, 255, 218, 0.2);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Floating glow box elements */
+.glow-box {
+  position: absolute;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  z-index: 0;
+  animation: float 15s infinite linear;
+}
+
+/* Keyframes */
+@keyframes animateGlow {
+  0% { transform: rotate(0deg) translate(-10%, -10%) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(-10%, -10%) rotate(-360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Apply only to learn.html */
+.learn-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e5f6ff, #00a9e0); /* Blue gradient background */
+  display: flex;
+  flex-direction: column; /* Single column layout */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px; /* Padding for better spacing */
+  box-sizing: border-box;
+}
+
+.content-box {
+  background-color: white;
+  padding: 20px 25px 90px; /* Adjusted padding to make it shorter */
+  border-radius: 15px;
+  width: 80%; /* Wider box */
+  max-width: 700px; /* Increased max-width */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.content-box h1 {
+  font-size: 2.5rem; /* Adjusted font size for shorter height */
+  color: #003d5b;
+  margin-top: 0px; /* Removed margin-top */
+  margin-bottom: 10px; /* Reduced margin-bottom */
+}
+
+.content-box h2 {
+  font-size: 1.6rem; /* Adjusted font size for shorter height */
+  color: #003d5b;
+  margin-bottom: 10px;
+}
+
+.content-box ul {
+  font-size: 1.1rem; /* Adjusted font size for shorter height */
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.info-box {
+  background-color: #f9f9f9;
+  box-shadow: 2px 4px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px 20px; /* Adjusted padding to make it shorter */
+  border-radius: 50px;
+  max-width: 700px; /* Increased max-width */
+}
+
+.info-box-top {
+  margin-bottom: 10px;
+}
+
+.info-box-top img {
+  width: 100%;
+  height: auto;
+  max-width: 650px; /* Increased image size */
+  border-radius: 10px;
+}
+
+.info-box-bottom {
+  margin-top: 10px;
+}
+
+.info-box ul {
+  font-size: 1.1rem; /* Adjusted font size for shorter height */
+  color: #333;
+  line-height: 1.6;
+}
+
+.start-btn {
+  background-color: #003d5b;
+  color: white;
+  padding: 12px 28px; /* Reduced padding to fit with shorter layout */
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem; /* Adjusted font size for shorter height */
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #00a9e0;
+  transform: scale(1.05);
+}
+
+/* Apply only to cyber.html */
+.cyber-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.cyber-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.cyber-page .image {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.cyber-page .info-text {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #333;
+}

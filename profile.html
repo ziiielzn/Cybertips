@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="profile-page">
+  <header class="navbar">
+    <button class="back-btn" onclick="window.location.href='home.html'">Back to Home</button>
+  </header>
+
+  <section class="profile-section">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h2>Profile Dashboard</h2>
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <img src="default-profile.jpg" alt="Profile Picture" class="profile-img" id="profile-image">
+          <button class="change-profile-btn">Change Profile Picture</button>
+        </div>
+
+        <div class="user-details">
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> johndoe@example.com</p>
+        </div>
+
+        <div class="profile-options">
+          <div class="learning-history">
+            <h3>Learning History</h3>
+            <p>Course 1: Completed</p>
+            <p>Course 2: In Progress</p>
+          </div>
+          <div class="privacy-settings">
+            <h3>Privacy Settings</h3>
+            <form id="privacy-form" action="update_profile.php" method="POST">
+              <label for="username">Change Username:</label>
+              <input type="text" id="username" name="username" value="JohnDoe123">
+              <label for="password">Change Password:</label>
+              <input type="password" id="password" name="password">
+              <button type="submit" class="save-changes-btn">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelector('.change-profile-btn').addEventListener('click', function() {
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = 'image/*';
+      
+      fileInput.addEventListener('change', function() {
+        const formData = new FormData();
+        formData.append('profile-picture', fileInput.files[0]);
+
+        fetch('/profile.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  document.getElementById('profile-image').src = data.newImagePath;
+              } else {
+                  alert(data.error);
+              }
+          });
+      });
+
+      fileInput.click();
+    });
+  </script>
+</body>
+</html>

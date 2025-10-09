@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="create-page">
+  <!-- Background glow elements -->
+  <div class="glow-box"></div>
+  <div class="glow-box"></div>
+  <div class="glow-box"></div>
+
+  <div class="create-container">
+    <!-- Left Panel (Logo) -->
+    <div class="left-panel">
+      <img src="logo.png" alt="Cyber Tips Logo" class="logo-left" />
+    </div>
+
+    <!-- Right Panel (Form) -->
+    <div class="right-panel">
+      <h2>Create Account</h2>
+      <form class="form-plain" action="register.php" method="POST" onsubmit="return validateForm()">
+        <!-- Email field -->
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email address" 
+          required 
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+          title="Please enter a valid email address" 
+        />
+
+        <!-- Password field -->
+        <input 
+          type="password" 
+          name="password" 
+          id="password" 
+          placeholder="Password" 
+          required 
+          minlength="8" 
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" 
+          title="Password must be at least 8 characters, with at least one uppercase letter, one lowercase letter, and one number." 
+        />
+
+        <!-- Confirm password field -->
+        <input 
+          type="password" 
+          name="confirm-password" 
+          id="confirm-password" 
+          placeholder="Confirm password" 
+          required 
+          minlength="8" 
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" 
+          title="Password must be at least 8 characters, with at least one uppercase letter, one lowercase letter, and one number."
+        />
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password").value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

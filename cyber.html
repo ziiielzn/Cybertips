@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Cyber Threat?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .logo {
+            text-align: center;
+            margin: 20px 0 40px 0;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        p {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 30px;
+            font-size: 1.2rem;
+        }
+        li {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        .continue {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <!-- Content will be updated here with each click -->
+    </div>
+
+    <script>
+        const slides = [
+            `<h1>WHAT IS CYBER THREAT?</h1>
+            <div class="logo">
+                <!-- Replace with your actual logo -->
+                <img src="logo.png" alt="Logo">
+            </div>
+            <p>Cyber threats are malicious activities aimed at disrupting, damaging, or gaining unauthorized access to computer systems, networks, and data.</p>
+            <div class="continue">Click anywhere to continue...</div>`,
+            
+            `<h1>WHAT IS CYBER THREAT?</h1>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <p>Cyber threats are malicious activities aimed at disrupting, damaging, or gaining unauthorized access to computer systems, networks, and data.</p>
+            <p>These threats can come from various sources, including hackers, cybercriminal organizations, and even nation-state actors.</p>
+            <div class="continue">Click anywhere to continue...</div>`,
+            
+            `<h1>WHAT IS CYBER THREAT?</h1>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <p>Cyber threats are malicious activities aimed at disrupting, damaging, or gaining unauthorized access to computer systems, networks, and data.</p>
+            <p>These threats can come from various sources, including hackers, cybercriminal organizations, and even nation-state actors.</p>
+            <p>Cyber threats can result in:</p>
+            <ul>
+                <li>✔ Data breaches – Theft or exposure of personal and business data.</li>
+            </ul>
+            <div class="continue">Click anywhere to continue...</div>`,
+            
+            `<h1>WHAT IS CYBER THREAT?</h1>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <p>Cyber threats are malicious activities aimed at disrupting, damaging, or gaining unauthorized access to computer systems, networks, and data.</p>
+            <p>These threats can come from various sources, including hackers, cybercriminal organizations, and even nation-state actors.</p>
+            <p>Cyber threats can result in:</p>
+            <ul>
+                <li>✔ Data breaches – Theft or exposure of personal and business data.</li>
+                <li>✔ Financial losses – Fraud, ransom demands, and online scams.</li>
+            </ul>
+            <div class="continue">Click anywhere to continue...</div>`,
+            
+            `<h1>WHAT IS CYBER THREAT?</h1>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <p>Cyber threats are malicious activities aimed at disrupting, damaging, or gaining unauthorized access to computer systems, networks, and data.</p>
+            <p>These threats can come from various sources, including hackers, cybercriminal organizations, and even nation-state actors.</p>
+            <p>Cyber threats can result in:</p>
+            <ul>
+                <li>✔ Data breaches – Theft or exposure of personal and business data.</li>
+                <li>✔ Financial losses – Fraud, ransom demands, and online scams.</li>
+                <li>✔ Disruptions – Attacks that shut down systems, networks, or services.</li>
+            </ul>
+            <div class="continue">Presentation complete. Click to restart.</div>`
+        ];
+
+        let currentSlide = 0;
+        const contentDiv = document.getElementById('content');
+        
+        // Initialize with first slide
+        contentDiv.innerHTML = slides[currentSlide];
+        
+        // Advance to next slide on click
+        document.addEventListener('click', function() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            contentDiv.innerHTML = slides[currentSlide];
+            
+            // Scroll to top for each new slide
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>

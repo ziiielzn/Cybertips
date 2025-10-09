@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Log In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <!-- Background glow elements -->
+  <div class="glow-box"></div>
+  <div class="glow-box"></div>
+  <div class="glow-box"></div>
+
+  <div class="login-container">
+    <!-- Left Panel (Logo) -->
+    <div class="left-panel">
+      <img src="logo.png" alt="Cyber Tips Logo" class="logo-left" />
+    </div>
+
+    <!-- Right Panel (Form) -->
+    <div class="right-panel">
+      <h2>Log In</h2>
+      <form class="form-plain" action="login.php" method="POST">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email address" 
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Please enter a valid email address"
+        />
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Password" 
+          required
+          minlength="8"
+        />
+        <button type="submit" class="submit-btn">Log In</button>
+        <div class="signup-link">
+          Don't have an account? <a href="register.html">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
