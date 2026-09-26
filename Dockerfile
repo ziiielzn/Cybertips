@@ -11,5 +11,6 @@ RUN rm -rf /var/www/html/.git \
     && mkdir -p /var/www/html/uploads \
     && chown -R www-data:www-data /var/www/html
 
-# Railway provides $PORT; make Apache listen on it
-CMD ["sh", "-c", "sed -i \"s/Listen 80/Listen ${PORT:-80}/\" /etc/apache2/ports.conf && sed -i \"s/:80>/:${PORT:-80}>/\" /etc/apache2/sites-enabled/000-default.conf && apache2-foreground"]
+# Railway provides $PORT; make Apache listen on it.
+# Also ensure only the prefork MPM is enabled (required by mod_php).
+CMD ["sh", "-c", "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* && a2enmod -q mpm_prefork >/dev/null && sed -i \"s/Listen 80/Listen ${PORT:-80}/\" /etc/apache2/ports.conf && sed -i \"s/:80>/:${PORT:-80}>/\" /etc/apache2/sites-enabled/000-default.conf && apache2-foreground"]
